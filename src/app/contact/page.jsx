@@ -3,7 +3,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const ContactUsPAge = async () => {
   await sleep(3000); // 3 seconds delay
   return (
-    <div className="mt-[140px]">
+    <div className="mt-35">
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #e5e5e5; border-radius: 8px; text-align: center;">
         <h2 style="color: #d9534f; margin-bottom: 15px;">Access Restricted</h2>
 
