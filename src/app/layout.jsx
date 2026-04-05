@@ -1,14 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/root/layout/navbar/Navbar";
+import "leaflet/dist/leaflet.css";
+import Footer from "@/components/root/layout/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+export const poppins = Poppins({
   subsets: ["latin"],
+  weight: [
+    "100", // thin
+    "200", // extra-light
+    "300", // light
+    "400", // normal
+    "500", // medium
+    "600", // semi-bold
+    "700", // bold
+    "800", // extra-bold
+    "900", // black
+  ],
+  variable: "--font-poppins",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+export const hnd = Dancing_Script({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hnd",
 });
 
 export const metadata = {
@@ -18,11 +33,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${poppins.variable} ${hnd.variable}`}>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
