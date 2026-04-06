@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/root/layout/navbar/Navbar";
 import "leaflet/dist/leaflet.css";
 import Footer from "@/components/root/layout/footer/Footer";
+import Maintenance from "@/components/common/maintenance/Maintenance";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -92,9 +93,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.variable} ${hnd.variable}`}>
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+        {process.env.SITE_MODE == 1 ? (
+          <Maintenance />
+        ) : (
+          <>
+            <Navbar />
+            {children}
+            <Footer />
+          </>
+        )}
       </body>
     </html>
   );
