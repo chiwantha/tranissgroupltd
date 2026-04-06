@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Links from "./links/Links";
+import NextTopLoader from "nextjs-toploader";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
   }, []);
   return (
     <div
-      className={`w-full h-17.5 fixed left-0 z-51 ${scrolled ? "top-0 bg-black/15 backdrop-blur-xs " : "top-8 rounded-xl"} transition-all duration-300 px-4`}
+      className={`w-full h-17.5 fixed left-0 z-51 ${scrolled ? "top-0 bg-black/50 backdrop-blur-xs " : "top-8 rounded-xl"} transition-all duration-300 px-4`}
     >
       <div
         className={`max-w-7xl mx-auto h-full flex justify-between items-center  ${!scrolled && `bg-black/10 px-8 rounded-xl backdrop-blur-xs `}  `}
@@ -31,6 +32,7 @@ const Navbar = () => {
           Traniss
         </h1>
         <Links />
+        <NextTopLoader />
       </div>
     </div>
   );

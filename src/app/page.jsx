@@ -1,6 +1,7 @@
 import ChooseCard from "@/components/root/card/ChooseCard";
 import DestinationGrid from "@/components/root/grid/DestinationGrid";
 import WidthWrap from "@/components/root/layout/widthwrap/WidthWrap";
+import Cta from "@/components/root/sections/calltoaction/Cta";
 import Hero from "@/components/root/sections/hero/Hero";
 import MapDestination from "@/components/root/sections/mapdestination/MapDestination";
 import Image from "next/image";

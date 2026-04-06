@@ -16,7 +16,7 @@ const Maintenance = () => {
       </div>
 
       {/* Overlay (gradient for readability) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 z-10" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/70 to-black/90 z-10" />
 
       {/* Content */}
       <div className="relative z-20 text-center px-6 max-w-2xl">

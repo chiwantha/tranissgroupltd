@@ -70,7 +70,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 bg-black">
         {/* Fade transition layer */}
-        <div key={selectedSlide.id} className="absolute inset-0 animate-fade">
+        <div key={selectedSlide.id} className="absolute inset-0  animate-hero">
           <Image
             src={selectedSlide?.image || "/hero/natural.png"}
             alt="hero_image"
@@ -142,16 +142,19 @@ const Hero = () => {
 
       {/* Fade animation */}
       <style jsx>{`
-        .animate-fade {
-          animation: fadeIn 1s ease-in-out;
+        .animate-hero {
+          animation: heroAnim 6s ease-in-out forwards;
         }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0.5;
-            transform: scale(1.02);
+        @keyframes heroAnim {
+          0% {
+            opacity: 0;
+            transform: scale(1.2);
           }
-          to {
+          20% {
+            opacity: 1;
+          }
+          100% {
             opacity: 1;
             transform: scale(1);
           }

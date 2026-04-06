@@ -4,6 +4,7 @@ import Navbar from "@/components/root/layout/navbar/Navbar";
 import "leaflet/dist/leaflet.css";
 import Footer from "@/components/root/layout/footer/Footer";
 import Maintenance from "@/components/common/maintenance/Maintenance";
+import Cta from "@/components/root/sections/calltoaction/Cta";
 
 export const poppins = Poppins({
   subsets: ["latin"],
@@ -20,13 +21,11 @@ export const poppins = Poppins({
   ],
   variable: "--font-poppins",
 });
-
 export const hnd = Dancing_Script({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-hnd",
 });
-
 export const metadata = {
   metadataBase: new URL("https://tranissgroupltd.uk"),
 
@@ -99,6 +98,7 @@ export default function RootLayout({ children }) {
           <>
             <Navbar />
             {children}
+            <Cta />
             <Footer />
           </>
         )}

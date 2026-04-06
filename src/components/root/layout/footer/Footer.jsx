@@ -8,8 +8,8 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
-import { CgWebsite } from "react-icons/cg";
-import { IoLogoWhatsapp } from "react-icons/io";
+
+import { contact_info } from "@/constant/Company";
 
 const Footer = () => {
   return (
@@ -28,6 +28,7 @@ const Footer = () => {
         <WidthWrap>
           <div className="flex flex-col gap-2">
             <div className="py-6 md:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* company */}
               <div className="bg-white p-4 md:p-6 rounded-xl flex flex-col gap-4 text-center">
                 <h1 className="font-hnd text-5xl font-bold tracking-tight text-theme-light-blue">
                   Traniss
@@ -92,30 +93,19 @@ const Footer = () => {
                   Contact Us
                 </h3>
 
-                <div className="flex items-start gap-3  text-gray-200">
-                  <FaMapMarkerAlt className="mt-1" />
-                  <p>89, Pym Court, Cromwell Road, Cambridge</p>
-                </div>
-
-                <div className="flex items-center gap-3 text-gray-200">
-                  <FaPhoneAlt />
-                  <p>00447570779744</p>
-                </div>
-
-                <div className="flex items-center gap-3 text-gray-200">
-                  <IoLogoWhatsapp />
-                  <p>00447570779744</p>
-                </div>
-
-                <div className="flex items-center gap-3  text-gray-200">
-                  <FaEnvelope />
-                  <p>info@tranissgroupltd.uk</p>
-                </div>
-
-                <div className="flex items-center gap-3  text-gray-200">
-                  <CgWebsite />
-                  <p>www.tranissgroupltd.uk</p>
-                </div>
+                {contact_info.map((info, index) => (
+                  <div
+                    className="flex items-start gap-3  text-gray-200 group"
+                    key={index}
+                  >
+                    <span className="mt-1.5 group-hover:text-theme-light-green group-hover:scale-110 transition-all duration-300">
+                      {info.icon}
+                    </span>
+                    <p className="text-lg transition-colors cursor-pointer">
+                      {info.value}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
