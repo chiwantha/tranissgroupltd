@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 export const metadata = {
-  title: "About Traniss Group Ltd | Sri Lanka Travel Experts from the UK",
+  title: "About",
   description:
     "Learn about Traniss Group Ltd, a UK-based travel company connecting travelers with the beauty, culture, and heritage of Sri Lanka. Discover our vision and mission.",
   keywords: [

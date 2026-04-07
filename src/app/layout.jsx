@@ -38,7 +38,7 @@ export const metadata = {
   authors: [{ name: "Traniss Group Ltd", url: "https://tranissgroupltd.uk" }],
   creator: "Traniss Group Ltd",
   publisher: "Traniss Group Ltd",
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "/assets/logo.png" },
   openGraph: {
     title: "Traniss Group Ltd | Travel to Sri Lanka from the UK",
     description:
