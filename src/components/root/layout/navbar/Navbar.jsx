@@ -32,7 +32,7 @@ const Navbar = () => {
           Traniss
         </h1>
         <Links />
-        <NextTopLoader />
+        <NextTopLoader showSpinner={false} />
       </div>
     </div>
   );

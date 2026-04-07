@@ -4,7 +4,7 @@ import React from "react";
 
 const DestinationCard = ({ title, desc, image, slug }) => {
   return (
-    <div className="flex flex-col rounded-xl overflow-hidden h-full bg-white shadow-md">
+    <div className="flex flex-col rounded-xl overflow-hidden h-full bg-white shadow-md hover:scale-102 transition-transform duration-300 ">
       <div className="relative aspect-16/12 z-10">
         <Image
           src={`/destination/${image}`}

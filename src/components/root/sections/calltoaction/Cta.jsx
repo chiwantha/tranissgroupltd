@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import WidthWrap from "../../layout/widthwrap/WidthWrap";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cta = () => {
   const [form, setForm] = useState({
@@ -13,33 +15,52 @@ const Cta = () => {
   });
 
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const validate = () => {
+    if (!form.name.trim()) return "Name is required";
+    if (!form.email.trim()) return "Email is required";
+    if (!/\S+@\S+\.\S+/.test(form.email)) return "Invalid email";
+    if (!form.phone.trim()) return "Phone is required";
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const error = validate();
+    if (error) {
+      toast.error(error);
+      return;
+    }
+
     setLoading(true);
-    setStatus("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_APP_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        },
+      );
 
       const data = await res.json();
 
       if (data.success) {
-        setStatus("Message sent successfully!");
+        toast.success("Message sent successfully!");
         setForm({ name: "", email: "", phone: "", message: "" });
       } else {
-        setStatus("Something went wrong.");
+        toast.error(data.message || "Something went wrong");
       }
     } catch (err) {
-      setStatus("Server error.");
+      toast.error("Server error");
     }
 
     setLoading(false);
@@ -85,37 +106,32 @@ const Cta = () => {
 
             {/* RIGHT FORM */}
             <div className="flex flex-col gap-4">
-              {/* Name */}
               <div>
-                <label className="text-gray-300 text-sm ml-4">Your Name</label>
+                <label className="text-gray-500 text-lg ml-4">Your Name</label>
                 <input
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  required
                   maxLength={50}
                   placeholder="Full Name"
                   className="w-full mt-2 bg-white/90 focus:bg-white transition py-3 px-4 rounded-xl outline-none focus:ring-2 focus:ring-theme-light-green"
                 />
               </div>
 
-              {/* Email */}
               <div>
-                <label className="text-gray-300 text-sm ml-4">Your Email</label>
+                <label className="text-gray-500 text-lg ml-4">Your Email</label>
                 <input
                   name="email"
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  required
                   placeholder="example@email.com"
                   className="w-full mt-2 bg-white/90 focus:bg-white transition py-3 px-4 rounded-xl outline-none focus:ring-2 focus:ring-theme-light-green"
                 />
               </div>
 
-              {/* Phone */}
               <div>
-                <label className="text-gray-300 text-sm ml-4">Contact No</label>
+                <label className="text-gray-500 text-lg ml-4">Contact No</label>
                 <input
                   name="phone"
                   value={form.phone}
@@ -128,12 +144,11 @@ const Cta = () => {
 
             {/* Message */}
             <div className="md:col-span-2">
-              <label className="text-gray-300 text-sm ml-4">Message</label>
+              <label className="text-gray-500 text-lg ml-4">Message</label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                required
                 maxLength={500}
                 rows={4}
                 placeholder="Write your message here..."
@@ -146,16 +161,16 @@ const Cta = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-8 py-3 rounded-full bg-theme-light-green text-black font-semibold hover:scale-105 transition disabled:opacity-50"
+                className="px-8 py-3 rounded-xl bg-theme-light-green text-black font-semibold hover:scale-105 transition disabled:opacity-50"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
-
-              {status && <p className="text-sm text-gray-300">{status}</p>}
             </div>
           </div>
         </form>
       </WidthWrap>
+
+      <ToastContainer position="top-right" />
     </div>
   );
 };

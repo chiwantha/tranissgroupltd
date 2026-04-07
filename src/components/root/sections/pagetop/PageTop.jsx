@@ -15,7 +15,7 @@ const PageTop = () => {
           alt={`${pathName}.png`}
           fill
           className="object-center object-cover z-10"
-          sizes="100vw"
+          sizes="60vw"
           loading="eager"
         />
 

@@ -2,7 +2,7 @@ import Button from "@/components/common/button/Button";
 import React from "react";
 import DestinationCard from "../card/DestinationCard";
 
-const DestinationGrid = () => {
+const DestinationGrid = ({ limit, header }) => {
   const destinations = [
     {
       title: "Sigiriya",
@@ -55,12 +55,14 @@ const DestinationGrid = () => {
   ];
   return (
     <div className="flex flex-col gap-4 md:gap-8">
-      <div className="flex items-center justify-between gap-4  flex-wrap">
-        <span className="font-hnd font-bold text-theme-light-blue text-4xl flex gap-2 items-center flex-nowrap">
-          Popular <span className="md:block hidden">Destinations</span>
-        </span>
-        <Button title={`View All`} />
-      </div>
+      {header && (
+        <div className="flex items-center justify-between gap-4  flex-wrap">
+          <span className="font-hnd font-bold text-theme-light-blue text-4xl flex gap-2 items-center flex-nowrap">
+            Popular <span className="md:block hidden">Destinations</span>
+          </span>
+          <Button title={`View All`} />
+        </div>
+      )}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {destinations.map((des, index) => (
           <DestinationCard
