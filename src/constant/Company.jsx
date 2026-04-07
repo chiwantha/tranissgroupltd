@@ -1,5 +1,11 @@
 import { CgWebsite } from "react-icons/cg";
-import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaBarcode,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { FaBuildingFlag } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 export const contact_info = [
@@ -27,6 +33,16 @@ export const contact_info = [
     title: `Website`,
     value: `www.tranissgroupltd.uk`,
     icon: <CgWebsite />,
+  },
+  {
+    title: `Registered in `,
+    value: `England & Wales`,
+    icon: <FaBuildingFlag />,
+  },
+  {
+    title: `Company Reg No. `,
+    value: `16941180`,
+    icon: <FaBarcode />,
   },
 ];
 

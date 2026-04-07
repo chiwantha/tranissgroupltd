@@ -93,7 +93,7 @@ const Footer = () => {
                   Contact Us
                 </h3>
 
-                {contact_info.map((info, index) => (
+                {contact_info.slice(0, 5).map((info, index) => (
                   <div
                     className="flex items-start gap-3  text-gray-200 group"
                     key={index}
