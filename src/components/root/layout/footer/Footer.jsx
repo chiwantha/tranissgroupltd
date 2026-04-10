@@ -1,15 +1,17 @@
 import React from "react";
 import WidthWrap from "../widthwrap/WidthWrap";
 import {
+  FaBarcode,
   FaEnvelope,
   FaFacebookSquare,
   FaLinkedin,
   FaMapMarkerAlt,
   FaPhoneAlt,
 } from "react-icons/fa";
-import { FaSquareInstagram } from "react-icons/fa6";
+import { FaBuildingFlag, FaSquareInstagram } from "react-icons/fa6";
 
 import { contact_info } from "@/constant/Company";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -28,7 +30,7 @@ const Footer = () => {
         <WidthWrap>
           <div className="flex flex-col gap-2">
             <div className="py-6 md:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* company */}
+              {/* COMPANY */}
               <div className="bg-white p-4 md:p-6 rounded-xl flex flex-col gap-4 text-center">
                 <h1 className="font-hnd text-5xl font-bold tracking-tight text-theme-light-blue">
                   Traniss
@@ -40,15 +42,27 @@ const Footer = () => {
                 </p>
                 <hr className="border-gray-200" />
                 <div className="flex justify-evenly items-center text-2xl">
-                  <span className="text-blue-500 hover:scale-105 transition-transform duration-300">
+                  <Link
+                    href={`https://www.facebook.com/profile.php?id=61587784846995`}
+                    target="_blank"
+                    className="text-blue-500 hover:scale-105 transition-transform duration-300"
+                  >
                     <FaFacebookSquare />{" "}
-                  </span>
-                  <span className="text-pink-500 hover:scale-105 transition-transform duration-300">
+                  </Link>
+                  <Link
+                    href={`https://www.instagram.com/traniss2026/`}
+                    target="_blank"
+                    className="text-pink-500 hover:scale-105 transition-transform duration-300"
+                  >
                     <FaSquareInstagram />
-                  </span>
-                  <span className="text-blue-500 hover:scale-105 transition-transform duration-300">
+                  </Link>
+                  <Link
+                    href={`https://www.linkedin.com/in/traniss-group-6759483b0/`}
+                    target="_blank"
+                    className="text-blue-500 hover:scale-105 transition-transform duration-300"
+                  >
                     <FaLinkedin />
-                  </span>
+                  </Link>
                 </div>
               </div>
               {/* QUICK LINKS */}
@@ -56,20 +70,35 @@ const Footer = () => {
                 <h3 className="text-2xl text-theme-light-blue font-bold">
                   Quick Links
                 </h3>
-                <ul className="space-y-2 text-lg text-gray-200 font-light">
-                  <li className="hover:text-white cursor-pointer">Home ~</li>
-                  <li className="hover:text-white cursor-pointer">
+                <div className="space-y-2 text-lg text-gray-200 font-light flex flex-col">
+                  <Link href="/" className="hover:text-white cursor-pointer">
+                    Home ~
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="hover:text-white cursor-pointer"
+                  >
                     About Us ~
-                  </li>
-                  <li className="hover:text-white cursor-pointer">
+                  </Link>
+                  <Link
+                    href="/services"
+                    className="hover:text-white cursor-pointer"
+                  >
                     Services ~
-                  </li>
-                  <li className="hover:text-white cursor-pointer">
+                  </Link>
+                  <Link
+                    href="/destinations"
+                    className="hover:text-white cursor-pointer"
+                  >
                     Destinations ~
-                  </li>
-                  <li className="hover:text-white cursor-pointer">Tours ~</li>
-                  <li className="hover:text-white cursor-pointer">Contact ~</li>
-                </ul>
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="hover:text-white cursor-pointer"
+                  >
+                    Contact ~
+                  </Link>
+                </div>
               </div>
 
               {/* SERVICES */}
@@ -83,7 +112,6 @@ const Footer = () => {
                   <li>~ Hotel Bookings</li>
                   <li>~ Car Rentals</li>
                   <li>~ Custom Travel Plans</li>
-                  <li>~ Travel Tickets</li>
                 </ul>
               </div>
 
@@ -109,12 +137,19 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="border-t border-white/20 py-4 text-sm text-gray-300 flex flex-col md:flex-row items-center justify-between gap-2">
+            <div className="border-t border-white/20 py-4 text-sm text-gray-300 flex flex-col md:flex-row items-center justify-between gap-3">
+              {/* Left */}
               <p>
                 © {new Date().getFullYear()} Traniss Group Ltd. All Rights
                 Reserved.
               </p>
 
+              {/* Center (Company Info) */}
+              <div className="text-xs text-gray-400 text-center">
+                Registered in England & Wales · Company Reg No. 16941180
+              </div>
+
+              {/* Right */}
               <p>
                 Design & Developed By{" "}
                 <span className="text-theme-light-green font-medium">
